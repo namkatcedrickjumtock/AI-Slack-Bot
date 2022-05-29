@@ -1,0 +1,26 @@
+@slack /web-api: use for Restful request
+
+rmt-client : real tme messagin client for slack there are many other / sending messages and subcribing to an event
+
+const { RTMClient } = require('@slack/rtm-api');
+const token = process.env.SLACK_BOT_TOKEN;
+const rtm = new RTMClient(token);
+
+// Listen for users who join a channel that the bot user is a member of
+// See: https://api.slack.com/events/member_joined_channel
+rtm.on('member_joined_channel', async (event) => {
+  try {
+    // Send a welcome message to the same channel where the new member just joined, and mention the user.
+    const reply = await rtm.sendMessage(`Welcome to the channel, <@${event.user}>`, event.channel)
+    console.log('Message sent successfully', reply.ts);
+  } catch (error) {
+    console.log('An error occurred', error);
+  }
+});
+
+(async () => {
+  await rtm.start();
+})();
+
+
+ 
