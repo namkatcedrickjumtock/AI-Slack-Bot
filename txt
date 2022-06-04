@@ -1,11 +1,11 @@
 import { RTMClient } from "@slack/rtm-api";
 import { WebClient } from "@slack/web-api";
-import { SLACK_AUTH_TOKEN } from "./const.js";
-import { CLIENT_ID } from "./const.js";
 
-const web = new WebClient(SLACK_AUTH_TOKEN)
-const token = process.env.SLACK_BOT_TOKEN;
-const rtm = new RTMClient(SLACK_AUTH_TOKEN)
+
+
+const web = new WebClient("xoxb-3164401680611-3591228652978-edQMvXp9rlHuZbd5FYOEFAQR")
+// const token = process.env.SLACK_BOT_TOKEN;
+const rtm = new RTMClient("xoxb-3164401680611-3591228652978-edQMvXp9rlHuZbd5FYOEFAQR")
 
 
 
